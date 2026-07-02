@@ -240,9 +240,3 @@ The uninstall process will:
 └── init.d/
     └── flex-qdisc
 ```
-
----
-
-# License
-
-This project is intended for research and educational purposes. Flex-Qdisc is designed to evaluate dynamic CAKE-based traffic shaping techniques for mitigating bufferbloat on OpenWrt systems.
