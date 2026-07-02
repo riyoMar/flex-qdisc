@@ -54,9 +54,9 @@ stop_service() {
     
     local device
 
-    /etc/flex-qdisc/stop "$device"
-
     config_get device default device
+
+    /etc/flex-qdisc/stop "$device"
 }
 
 remove() {

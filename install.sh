@@ -36,6 +36,8 @@ chmod +x /etc/flex-qdisc/flex-qdisc
 chmod +x /etc/flex-qdisc/stop
 chmod +x /etc/flex-qdisc/remove
 chmod +x /etc/init.d/flex-qdisc
+echo
+echo
 
 echo "Installation completed!"
 echo
