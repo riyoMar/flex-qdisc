@@ -1,22 +1,31 @@
 #!/bin/sh
 
-# Create directory
+REPO="https://raw.githubusercontent.com/riyoMar/flex-qdisc/main"
+
+echo "Installing Flex-Qdisc..."
+
+# Create directories
+mkdir -p /etc/config
 mkdir -p /etc/flex-qdisc
+mkdir -p /etc/init.d
 
-# Install scripts
-cp etc/flex-qdisc/stop.sh /etc/flex-qdisc/stop
-cp etc/flex-qdisc/remove.sh /etc/flex-qdisc/remove
+# Download files
+wget -O /etc/config/flex-qdisc \
+    "$REPO/etc/config/flex-qdisc.sh"
 
-# Make scripts executable
+wget -O /etc/flex-qdisc/stop \
+    "$REPO/etc/flex-qdisc/stop.sh"
+
+wget -O /etc/flex-qdisc/remove \
+    "$REPO/etc/flex-qdisc/remove.sh"
+
+wget -O /etc/init.d/flex-qdisc \
+    "$REPO/etc/init.d/flex-qdisc.sh"
+
+# Make executable
 chmod +x /etc/flex-qdisc/stop
 chmod +x /etc/flex-qdisc/remove
-
-# Install config (do not overwrite if it already exists)
-[ -f /etc/config/flex-qdisc ] || \
-    cp etc/config/flex-qdisc.sh /etc/config/flex-qdisc
-
-# Install init script
-cp etc/init.d/flex-qdisc.sh /etc/init.d/flex-qdisc
 chmod +x /etc/init.d/flex-qdisc
 
-echo "Flex-Qdisc installed successfully."
+echo "Installation completed."
+echo "Run: /etc/init.d/flex-qdisc start"
