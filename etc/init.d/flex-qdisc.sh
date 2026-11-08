@@ -16,6 +16,7 @@ start_service() {
     
     local device interval safety
     local download upload alpha
+    local max_download max_upload
     local delta_download delta_upload
 
     config_get device default device    
@@ -23,6 +24,8 @@ start_service() {
     config_get safety default safety    
     config_get download default download    
     config_get upload default upload    
+    config_get max_download default max_download 0
+    config_get max_upload default max_upload 0
     config_get alpha default alpha    
     config_get delta_download default delta_download    
     config_get delta_upload default delta_upload
@@ -38,8 +41,12 @@ start_service() {
         "$upload" \
         "$alpha" \
         "$delta_download" \
-        "$delta_upload"
+        "$delta_upload" \
+        "$max_download" \
+        "$max_upload"
 
+    procd_set_param stdout 1
+    procd_set_param stderr 1
     procd_set_param respawn
 
     procd_close_instance

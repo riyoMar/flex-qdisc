@@ -74,6 +74,18 @@ The installer will:
 - Preserve the existing configuration if `/etc/config/flex-qdisc` already exists.
 - Set executable permissions for all required scripts.
 
+## Bandwidth limits
+
+Configure the minimum (`download` and `upload`) and maximum (`max_download` and
+`max_upload`) rates in `/etc/config/flex-qdisc`, in kbit/s. The maximum defaults
+to `0`, which disables that cap. A configured maximum below its corresponding
+minimum is treated as equal to the minimum.
+
+The service starts at the minimum rates. `delta_download` and `delta_upload`
+control the percentage increase or decrease per interval (default `5`). The
+rate increases when measured traffic reaches 90% of the current rate, and
+decreases below the configured `safety` threshold (default `70%`).
+
 The following files will be installed:
 
 ```text
