@@ -1,7 +1,7 @@
 #!/bin/sh
 
 DEVICE="${1:-phy0-sta0}"                 # interface
-IFB="ifb_${DEVICE}"                      # IFB mirror
+IFB="ifb4${DEVICE}"                      # IFB mirror
 
 INTERVAL=${2:-5}                        # seconds
 

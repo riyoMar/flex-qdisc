@@ -1,7 +1,7 @@
 #!/bin/sh
 
 IFACE="${1:-phy0-sta0}"
-IFB="ifb_${IFACE}"
+IFB="ifb4${IFACE}"
 
 tc qdisc del dev "${IFACE}" root 2>/dev/null
 tc qdisc del dev "${IFACE}" ingress 2>/dev/null

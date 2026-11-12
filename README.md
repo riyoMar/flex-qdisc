@@ -157,14 +157,14 @@ Example output:
 ```text
 root@OpenWrt:~# tc qdisc | grep cake
 qdisc cake de04: dev phy0-sta0 root refcnt 2 bandwidth 4Mbit besteffort triple-isolate nonat nowash no-ack-filter split-gso rtt 100ms raw overhead 0
-qdisc cake de05: dev ifb_phy0-sta0 root refcnt 2 bandwidth 4Mbit besteffort triple-isolate nonat nowash no-ack-filter split-gso rtt 100ms raw overhead 0
+qdisc cake de05: dev ifb4phy0-sta0 root refcnt 2 bandwidth 4Mbit besteffort triple-isolate nonat nowash no-ack-filter split-gso rtt 100ms raw overhead 0
 root@OpenWrt:~#
 ```
 
 This confirms that the **CAKE** queue disciplines have been successfully applied to:
 
 - The WAN interface (`phy0-sta0`) for egress traffic.
-- The IFB interface (`ifb_phy0-sta0`) for ingress traffic.
+- The IFB interface (`ifb4phy0-sta0`) for ingress traffic.
 
 ---
 
